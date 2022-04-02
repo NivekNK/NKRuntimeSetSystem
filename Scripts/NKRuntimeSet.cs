@@ -7,7 +7,7 @@ namespace NK.RuntimeSetSystem
     public abstract class NKRuntimeSet : ScriptableObject
     {
         /// <summary>
-        /// Return the first encountered RuntimeSet of the specified type in "Resources/RuntimeSets" folder or null if none is find.
+        /// Returns the first encountered RuntimeSet of the specified type in "Resources/RuntimeSets" folder or null if none is found.
         /// </summary>
         /// <typeparam name="TRuntimeSet"></typeparam>
         /// <returns></returns>
@@ -17,7 +17,7 @@ namespace NK.RuntimeSetSystem
         }
     }
 
-    public abstract class NKRuntimeSet<T> : NKRuntimeSet
+    public abstract class NKRuntimeSet<T> : NKRuntimeSet where T : MonoBehaviour
     {
         public SerializedDictionary<string, T> Sets = new SerializedDictionary<string, T>();
 
@@ -33,6 +33,12 @@ namespace NK.RuntimeSetSystem
             return Sets.Remove(t.GetType().Name);
         }
 
+        /// <summary>
+        /// Search for a MonoBehaviour of type "TType" in the RuntimeSet.
+        /// </summary>
+        /// <typeparam name="TType"></typeparam>
+        /// <param name="set"></param>
+        /// <returns></returns>
         public bool GetTypeOfRuntimeSet<TType>(out TType set) where TType : T
         {
             bool retVal = Sets.TryGetValue(typeof(TType).Name, out T value);
