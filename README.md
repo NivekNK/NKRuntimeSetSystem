@@ -1,10 +1,10 @@
 # NK RuntimeSet System
 
+This RuntimeSet system allows you to define classes of type "Singleton", which you can find and use in other classes. It comes with an example of the Manager class type.
+
 To use the **NK RuntimeSet System**, you need to clone the repository to the "Assets/Plugins/NKTools" folder path and create the "Assets/Resources/RuntimeSets" folder, there you need to create the RuntimeSet.
 
 ![NKRuntimeSetSystem](https://i.imgur.com/zdbYUQr.png "NKMangerRuntimeSet")
-
-This RuntimeSet system allows you to define classes of type "Singleton", which you can find and use in other classes. It comes with an example of the Manager class type.
 
 ## NKManager Class
 ```csharp
